@@ -1,0 +1,11 @@
+#comment-image{
+    max-width: 100%;
+}
+
+.comment-name span{
+    color: orange;
+}
+
+.comment-email span, .comment-body span{
+    color: gray;
+}

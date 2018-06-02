@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommentsService } from './services/comments.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  
+  constructor(private commentService: CommentsService){}
+  comments;
+  totalRecords;
+
+  loadComments(event){
+    this.commentService.getComments(event.first, event.rows).subscribe(res => {
+      this.comments = res['comments'];
+      this.totalRecords = res['total'];
+    })
+  }
 }
